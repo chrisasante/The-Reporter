@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>Ashesi University College</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+
+
+   <!--Import Google Icon Font-->
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+
+ <!-- Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="materialize/js/materialize.min,js"></script>      
+
+          
+  <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+  <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+
+
+  
+  <script src="js/lib/jquery.js"></script>
+  <!-- your scripts here -->
+  <script src="js/app/app.js"></script>
+  <script src="js/app/bootstrap.js"></script>
+  <script src="js/lib/jquery.mobile.js"></script>
+
+    <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  
+  <script>
+    var userAgent = navigator.userAgent + '';
+    if (userAgent.indexOf('iPhone') > -1) {
+      document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+      var mobile_system = 'iphone';
+    } else if (userAgent.indexOf('Android') > -1) {
+      document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+      var mobile_system = 'android';
+    } else {
+      var mobile_system = '';
+    }
+
+    function onDeviceReady() 
+    {
+        var Latitude = position.coords.latitude;
+        var Longitude = position.coords.longitude;
+    }
+
+    // Get geo coordinates
+
+
+    // Success callback for get geo coordinates
+
+    }
+
+  </script>
+  <script src="js/lib/jquery.js"></script>
+  <!-- your scripts here -->
+  <script src="js/app/app.js"></script>
+  <script src="js/app/bootstrap.js"></script>
+  <script src="js/lib/jquery.mobile.js"></script>
+
+    <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+
+  </head>
+  <body>
+    
+     <div data-role="header">
+        <h1>Welcome To The Reporter</h1>
+    </div><!-- /header -->
+
+
+     
+        <div class="container" >  
+    		<form id="contact" action="" method="post">
+    			<center><h4 style="text-align: center; color: maroon;">HomePage</h4></center>
+
+           <fieldset data-length="10">
+            <input placeholder="Subject" type="text"  autofocus, name="subj" id="subject" >
+          </fieldset>
+
+          <fieldset>
+            
+            <label for="message">Message</label>
+            <textarea id="message" class="materialize-textarea" name="mess" ></textarea>
+          </fieldset>
+
+
+          <fieldset>
+              <p>
+                <input name="category" type="radio" id="test1" value="police" />
+                <label for="test1">Police</label>
+              </p>
+              <p>
+                <input name="category" type="radio" id="test2" value="dvla" />
+                <label for="test2">DVLA</label>
+              </p>
+              <p>
+                <input class="with-gap" name="category" type="radio" id="test3" value="dvla" />
+                <label for="test3">Fire</label>
+              </p>
+
+
+          </fieldset>
+
+          <fieldset>
+            <img id = "userPic" name="userPic"></img>
+          </fieldset>
+
+    			<fieldset>
+    				<input type="button" value="Take Picture" onclick="takePicture()" id="cameraPic">
+    			</fieldset>
+
+          <fieldset>
+            <input type="button" value="Choose From Gallery" onclick="getPicFromGallery()" id="choosePic">
+          </fieldset>
+
+          <fieldset>
+            <button class="btn waves-effect waves-light" type="submit" name="action" id="upload" data-submit="...Sending" onclick="" >Send To Authorities
+            </button>
+          </fieldset>
+
+    		</form>
+        </div>
+    
+
+
+    <script type="text/javascript">
+
+       $('form').submit(function(){
+          var formData = $(this).serialize();
+
+          $.ajax({
+              type: "POST",
+              url: 'processUpload.php',
+              data: formData,
+              success: function(data){
+                  console.log(data);
+                  // 
+                  alert('You have successfully reported');
+                  document.location.assign("homepage.html");
+
+              },
+              error: function(){
+                  console.log(data);
+                  alert('There was an error reporting your case');
+              }
+
+          });
+
+          return false;
+      });
+
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Reporter</title>
+
+
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+
+      <!--Import Google Icon Font-->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+
+
+    <script src="js/lib/jquery.js"></script>
+    <!-- your scripts here -->
+    <script src="js/app/app.js"></script>
+    <script src="js/app/bootstrap.js"></script>
+    <script src="js/lib/jquery.mobile.js"></script>
+
+    <script type="text/javascript">
+        var userAgent = navigator.userAgent + '';
+        if (userAgent.indexOf('iPhone') > -1) {
+            document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+            var mobile_system = 'iphone';
+        } else if (userAgent.indexOf('Android') > -1) {
+            document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
+            var mobile_system = 'android';
+        } else {
+            var mobile_system = '';
+        }
+
+         
+  
+
+        
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+
+
+        
+     <div data-role="header">
+        <center><h6>Welcome To The Reporter</h6></center>
+    </div><!-- /header -->
+
+
+     <div class="col s12">
+        <div class="container">  
+    		<form id="register" action="" method="post">
+    			<center><h4 style="text-align: center; color: maroon;">Register</h4></center>
+    			<fieldset>
+    				<input placeholder="Username" type="text" tabindex="1"   autofocus, name="uname" id="username">
+    			</fieldset>
+    			<fieldset>
+    				<input placeholder="Password" type="password" tabindex="2"  name="passwd" id="password">
+    			</fieldset>
+    			<fieldset>
+    				<input placeholder="Email" type="email" tabindex="5"  name="email" id="useremail">
+    			</fieldset>
+    			<fieldset>
+    				<input placeholder="Phone Number" type="text" tabindex="3"  name="pNum" id="phoneNum">
+    			</fieldset>
+    			<fieldset>
+    				<input placeholder="Age" type="text" tabindex="4"  name="age" id="userAge">
+    			</fieldset>
+
+    			<fieldset>
+    				<button class="btn waves-effect waves-light" type="submit" name="action" id="registerSubmit" data-submit="...Sending" onclick="" >Register
+    				    
+    				</button>
+
+    			</fieldset>
+
+               
+                    <a href ="index.php">Already have an account? Login here.</a>
+            
+
+    		</form>
+        </div>
+    </div>
+
+<script type="text/javascript">
+            // $(document).ready(function() {
+        //     $("#registerSubmit").click(function(){
+             $('form').submit(function(){
+                var formData = $(this).serialize();
+  
+                $.ajax({
+                    type: "POST",
+                    url: 'phpRegister.php',
+                    data: formData,
+                    success: function(data){
+                        console.log(data);
+                        // 
+                        alert('Your have successfully registered');
+                        document.location.assign("homepage.html");
+
+                    },
+                    error: function(){
+                        console.log(data);
+                        alert('There was an error registering');
+                    }
+
+                });
+  
+                return false;
+            });
+</script>
+
+
+
+
+</body>
+</html>
+
